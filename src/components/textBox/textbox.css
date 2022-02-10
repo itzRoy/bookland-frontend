@@ -1,0 +1,63 @@
+.textarea {
+  margin: 1.5em 0;
+  margin-left: 5rem;
+}
+
+.textarea label {
+  position: relative;
+  font-size: 1.5em;
+}
+
+.textarea label textarea {
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  background-color: #fffffa;
+  padding: 2.7em;
+  border-radius: 5px;
+  width: 250px;
+  outline: none;
+  font-size: .8rem;
+  border: 2px solid transparent;
+  resize: none;
+  color: #602656;
+}
+
+.textarea label span {
+  position: absolute;
+  top: -170%;
+  left: 12px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  color: #2cc4e5;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: 300;
+  font-size: 0.85rem;
+}
+
+.textarea label textarea:not(:placeholder-shown) + span {
+  color: transparent;
+  -webkit-transform: translate3d(0, -6p, 0) scale(0.5);
+          transform: translate3d(0, -6p, 0) scale(0.5);
+}
+
+.textarea label textarea:focus {
+  border: 2px solid #e74a5d;
+}
+
+.textarea label textarea:focus + span {
+  top: -79px;
+  font-size: 10px;
+  background: -webkit-gradient(linear, left top, right top, from(#2cc4e5), to(#e74a5d));
+  background: linear-gradient(to right, #2cc4e5, #e74a5d);
+  border-radius: 4px;
+  padding: 0 5px;
+  color: #fff;
+}
+
+@media (min-width: 1200px) {
+  .textarea label textarea {
+    width: 500px;
+  }
+}
+/*# sourceMappingURL=textbox.css.map */
