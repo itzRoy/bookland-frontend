@@ -15,58 +15,64 @@ import DeleteIcon from '@material-ui/icons/Delete'
 
 const useStyles = makeStyles({
   table:{
-    minWidth:650
+    minWidth:650,
   }
-})
+}) 
 
 const AdminView = () => {
-  const books = useStyles();
+  const Books = useStyles();
 
-  const [booksList, setBooksList] = useState([])
+  const [BooksList, setBooksList] = useState([])
+  const [counter, setCounter] = useState(0)
 
-  const deleteBook = (id) =>{
-    axios.delete(`http://localhost:8000/books/${id}`).then( ()=>{
-      window.location.reload(false)
-    })
-  }
+  const deleteBook = async (id) => {
+    let res;
+    try {
+      res = await axios.delete(`http://localhost:8000/books/delete/${id}`);
+      setCounter(counter+1)
+    } catch (err) {
+      console.log(err);
+    }
+    setBooksList(res.data);
+  };
 
   useEffect(()=>{
     axios.get('http://localhost:8000/books').then((Book)=>{
       setBooksList(Book.data)
     })
 
-  }, [])
-    console.log(books.title)
+  }, [counter])
   return ( 
     <div className="table">
       <h2>All Books</h2>
       <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table" className={books.table}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table" className={Books.table}>
         <TableHead>
           <TableRow>
-            <TableCell align='center'>Book Title</TableCell>
-            <TableCell align="right">Author</TableCell>
+            <TableCell align='left'>Book Title</TableCell>
+            <TableCell align="center">Author</TableCell>
             <TableCell align="right">Date</TableCell>
             <TableCell align="right">Rating</TableCell>
+            <TableCell align="right">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {booksList.map((books, key) => (
+          {BooksList.map((Books, key) => (
             <TableRow
               key={key}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {books.title}
+                {Books.title}
               </TableCell>
-              <TableCell align="right">{books.author}</TableCell>
-              <TableCell align="right">{books.year}</TableCell>
-              <TableCell align="right">{books.rating}</TableCell>
+              <TableCell align="center">{Books.author}</TableCell>
+              <TableCell align="right">{Books.year}</TableCell>
+              <TableCell align="right">{Books.rating}</TableCell>
               <TableCell align="right">
-              <IconButton aria-label="delete" size="small" onClick={()=> deleteBook(books._id)}>
+              <IconButton aria-label="edit" size="small">
                 <EditIcon fontSize="small" />
               </IconButton>
-              <IconButton aria-label="delete" size="small" onClick={()=> deleteBook(books._id)}>
+              <IconButton aria-label="delete" size="small" onClick={() => deleteBook(Books._id)}>
                 <DeleteIcon fontSize="small" />
               </IconButton>
               </TableCell>

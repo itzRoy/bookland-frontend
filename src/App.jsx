@@ -6,9 +6,10 @@ import Books from "./pages/Books";
 import Book from "./pages/Book";
 import Contact from "./pages/Contact ";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AdminLayout from './pages/Adminlayout/AdminLayout'
+import AdminLayout from "./pages/Adminlayout/AdminLayout";
 
 const App = () => {
+  const isAdmin = true;
   return (
     <>
       {/* <Announcement /> */}
@@ -20,7 +21,7 @@ const App = () => {
           <Route path="/books" element={<Books />} />
           <Route exact path="/books/:id" element={<Book />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path='/admin' element={<AdminLayout />} />
+          <Route path="/admin" element={isAdmin ? <AdminLayout /> : <Home />} />
         </Routes>
       </Router>
     </>

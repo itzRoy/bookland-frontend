@@ -11,34 +11,43 @@
         margin: auto;
         margin-left: 10.6rem;
     }
-    button {
-        font-family: Varela round;
-        margin: 1em 0;
-        padding: 1.2em;
-        border-radius: 5px;
-        border: none;
-        width: 250px;
-        text-transform: uppercase;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
-        color: #fff;
-        cursor: pointer;
-        outline: none;
-        background: linear-gradient(to right, $blue-light, $red);
-        align-items: center;
-        margin-left: 5.1rem;
-    }
+    .submit-btn {
+        display: flex;
+        flex-direction: column;
+        margin-left: 5rem;
     
-    button:hover {
-        transition: all .3s ease;
-        box-shadow: none;
-        background: linear-gradient(to left, $blue-light, $red);
+        button {
+            font-family: Varela round;
+            margin: 1em 0;
+            padding: 1.2em;
+            border-radius: 5px;
+            border: none;
+            width: 250px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+            color: #fff;
+            cursor: pointer;
+            outline: none;
+            background: linear-gradient(to right, $blue-light, $red);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        button:hover {
+            transition: all .3s ease;
+            box-shadow: none;
+            background: linear-gradient(to left, $blue-light, $red);
+        }
     }
 }
 
 @include for-desktop {
     .admin-add-form{
-        button{
-            width: 400px;
-        }
+        .submit-btn{
+            button{
+                width: 400px;
+            }
+    }
     }
 }

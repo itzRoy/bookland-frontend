@@ -8,7 +8,6 @@ const AdminInput = ({name, type, text}) => {
           type={type}
           name={name}
           placeholder="&nbsp;"
-          autoComplete="off"
         />
         <span>{text}</span>
       </label>
