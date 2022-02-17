@@ -1,17 +1,9 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import Img1 from "../images/bgpictures/bgEdited.jpg";
-import s1 from "../images/slides/bg1.jpg";
-import s2 from "../images/slides/bg2.jpg";
-import s3 from "../images/slides/bg3.jpg";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay } from "swiper";
-
-// Styles must use direct files imports
-import "swiper/swiper.scss"; // core Swiper
-
-SwiperCore.use(Autoplay);
+// import Img1 from "../images/bgpictures/bgEdited.jpg";
+import Img1 from "../images/slides/background.jpg";
+// import Img2 from "../images/slides/bg2edited.png";
+import { useNavigate } from "react-router-dom";
 
 const SlideFromLeft = keyframes`
   0%{
@@ -25,89 +17,82 @@ const SlideFromLeft = keyframes`
 
     }
 `;
-const SlideFromRight = keyframes`
-  0%{
-        transform: translateX(100%);
-         opacity : 0;
+
+const SlideFromBottom = keyframes`
+ 0%{
+        transform: translateY(100%);
+        opacity: 0;
     }
 
     100%{
-        transform: translateX(0);
-        opacity : 1;
+        transform: translateY(0);
+        opacity: 1;
+
     }
+
+`;
+const SlideFromTop = keyframes`
+ 0%{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+
+    }
+
 `;
 
 const Container = styled.div`
-  width: 100%;
-  height: 90vh;
-  margin-top: 6.8rem;
+  position: relative;
+  height: 80vh;
+  margin-top: 6.7rem;
   display: flex;
-  /* background-image: url(${Img1}); */
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(4, 9, 30, 0.5)),
-    url(${Img1}); */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(${Img1});
+  background-image: url(${Img1});
   background-size: cover;
-  background-position-x: center;
-  background-position-y: center;
+  background-position-x: left;
+  @media only screen and (max-width: 768px) {
+    height: 60vh;
+  }
 `;
 const Wrapper = styled.div`
-  position: relative;
-  width: 90%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  @media only screen and (max-width: 1100px) {
-    flex-direction: column;
+  width: 500px;
+  margin: 90px 100px;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    margin: 30px;
   }
 `;
 
-const TitleWrapper = styled.div`
-  animation: ${SlideFromLeft} 1s ease-in-out;
-  @media only screen and (max-width: 1100px) {
-    text-align: center;
-    width: 70%;
-  }
-`;
 const Title = styled.h1`
-  font-size: 3.4vw;
-  font-weight: bold;
-  line-height: 100px;
-  color: white;
-  text-shadow: 1px 1px 1px #000000;
-  @media only screen and (max-width: 1100px) {
-    font-size: 35px;
-    line-height: 60px;
-    margin-bottom: 25px;
-    span {
-      margin: 0 !important;
-    }
-    br {
-      display: none;
-    }
+  animation: ${SlideFromTop} 1.5s ease-in-out;
+  font-size: 50px;
+  color: black;
+  font-family: Helvetica;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin: 20px 0;
+  @media only screen and (max-width: 768px) {
+    font-size: 30px;
   }
 `;
 
-const SwiperContainer = styled(Swiper)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50vw;
-  /* width: 30vw;
-  height: 45vw; */
-  margin: 0;
-  border-radius: 50px;
-  animation: ${SlideFromRight} 1s ease-in-out;
-
-  @media only screen and (max-width: 1100px) {
-    /* height: 35vw; */
-    width: 75vw;
+const Paragraph = styled.p`
+  animation: ${SlideFromLeft} 1.5s ease-in-out;
+  color: #000000;
+  font-weight: 500;
+  margin: 20px 0 30px;
+  font-size: 18px;
+  @media only screen and (max-width: 768px) {
+    line-height: 30px;
+    font-size: 15px;
   }
 `;
+
 const Button = styled.button`
+  animation: ${SlideFromBottom} 1.5s ease-in-out;
   position: absolute;
-  z-index: 3;
   padding: 8px 18px;
   border: none;
   color: white;
@@ -124,40 +109,21 @@ const Button = styled.button`
   }
 `;
 
-const Img = styled.img`
-  width: 100%;
-`;
 const MainSlide = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <Wrapper>
-        <TitleWrapper>
-          <Title>
-            The Largest <br />
-            <span style={{ marginLeft: "100px" }}>Collection</span> <br />
-            <span style={{ marginLeft: "170px" }}>
-              Of <span style={{ color: "red" }}> Books</span>
-            </span>
-          </Title>
-        </TitleWrapper>
-
-        <SwiperContainer
-          autoplay={{
-            delay: 3000,
-          }}
-          loop="true"
-        >
-          <SwiperSlide>
-            <Img src={s1} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Img src={s2} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Img src={s3} />
-          </SwiperSlide>
-          <Button>Explore Now</Button>
-        </SwiperContainer>
+        <Title>
+          The Largest Collection Of
+          <span style={{ color: "red", fontFamily: "inherit" }}> Books</span>
+        </Title>
+        <Paragraph>
+          Find your place at bookalnd bookstore, the largest collection of books
+          from all categories, find out our latest books and the best sellers
+          and order your list of books now
+        </Paragraph>
+        <Button onClick={() => navigate("books/all")}>Explore Now</Button>
       </Wrapper>
     </Container>
   );

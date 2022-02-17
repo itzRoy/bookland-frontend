@@ -1,0 +1,26 @@
+.Admin-btn {
+  background-color: #dddada;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: right;
+      align-self: right;
+  left: 100;
+  cursor: pointer;
+}
+
+.Admin-btn svg path {
+  stroke: #fe0302;
+}
+/*# sourceMappingURL=adminbutton.css.map */

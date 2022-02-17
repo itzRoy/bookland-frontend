@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import axios from "axios";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
-import { Link } from "react-router-dom";
+
 // Styles must use direct files imports
 import "swiper/swiper.scss"; // core Swiper
 import "swiper/components/pagination/pagination.scss";
@@ -41,7 +41,6 @@ const Wrapper = styled.div`
 
 const Img = styled.img`
   height: 240px;
-  max-width: 160px;
   margin-top: 10px;
   position: relative;
   border-bottom: 5px solid #ff0707;
@@ -55,20 +54,6 @@ const Img = styled.img`
 `;
 
 const Slider = () => {
-  const [latestBooks, setLatestBooks] = useState([]);
-  useEffect(() => {
-    let res;
-    const getLatestBooks = async () => {
-      try {
-        res = await axios.get(`http://localhost:8000/latestbooks/`);
-        setLatestBooks(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getLatestBooks();
-  }, []);
-
   return (
     <Container>
       <Text>Latest Books</Text>
@@ -100,13 +85,42 @@ const Slider = () => {
             width: "100%",
           }}
         >
-          {latestBooks.map((book) => (
-            <SwiperSlide>
-              <Link to={`/book/${book._id}`} key={book._id}>
-                <Img src={book.img} />
-              </Link>
-            </SwiperSlide>
-          ))}
+          <SwiperSlide>
+            <Img src={Img1} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Img src={Img2} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Img src={Img3} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Img src={Img4} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Img src={Img5} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Img src={Img6} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Img src={Img1} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Img src={Img2} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Img src={Img3} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Img src={Img4} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Img src={Img5} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Img src={Img6} />
+          </SwiperSlide>
         </Swiper>
       </Wrapper>
     </Container>

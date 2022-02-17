@@ -16,7 +16,7 @@ const Card = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.45);
   z-index: 5;
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@ const Icon = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: white;
+  background-color: transparent ;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,14 +75,13 @@ const Price = styled.h2`
 `;
 
 const BookCard = ({ item }) => {
-  // require(`${item.img}`)
   return (
     <>
       <Container>
-        <Image src={item.img} alt="Book Image" />
+        <Image src={item.img} alt={item.title} />
         <Card>
           <Icon>
-            <VisibilityIcon style={{ color: "red" , fontSize: '26px' }} />
+            <VisibilityIcon style={{ color: "#ff0000fa", fontSize: "30px" }} />
           </Icon>
         </Card>
       </Container>

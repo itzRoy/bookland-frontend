@@ -14,11 +14,10 @@
   }
 }
 .container {
-  width: 90%;
+  width: 75%;
   margin: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }

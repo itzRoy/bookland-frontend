@@ -18,9 +18,11 @@ const SlideFromBottom = keyframes`
 `;
 
 const Container = styled.div`
-  margin-top: 6.8rem;
+  margin-top: 6.7rem;
   width: 100%;
   height: 150vh;
+  display: flex;
+  /* height: 150vh; */
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(${Img1});
   background-size: cover;
@@ -29,9 +31,8 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   position: relative;
-  top: 50px;
-  width: 45vw;
-  margin: auto;
+  width: 70vw;
+  margin: 20px auto;
   display: flex;
   gap: 30px;
   flex-direction: column;
@@ -55,8 +56,8 @@ const Text = styled.p`
   text-align: center;
   color: white;
   @media only screen and (max-width: 768px) {
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 15px;
+    line-height: 25px;
   }
 `;
 
@@ -83,7 +84,7 @@ const About = () => {
             couple of moments, after using the convenient payment and content
             downloading system, you can start a fascinating reading. <br />
             Bookland provides users a bunch of opportunities:
-            <ul style={{ textAlign: "left", marginLeft: "25%" }}>
+            <ul style={{ textAlign: "center", listStyle: "inside" }}>
               <li>More than 2 million licensed books in 7 languages</li>
               <li>A vast catalog and many categories,</li>
               <li>Simple and intuitive interface and easy search</li>
@@ -91,7 +92,10 @@ const About = () => {
             </ul>
           </Text>
           <ButtonWrapper>
-            <Button variant="contained" color="secondary">
+            <Button
+              variant="contained"
+              style={{ background: "red", color: "white" }}
+            >
               Contact us
             </Button>
           </ButtonWrapper>

@@ -13,7 +13,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 500px;
 }
 
 .contact-container .contact-content {
@@ -146,7 +145,7 @@
 }
 
 .contact-container .contact-content .contact-social .contact-social_linkedin a span {
-  margin-left: .5em;
+  margin-left: 0.5em;
 }
 
 .contact-container .contact-content .contact-social .contact-social_twitter a svg {
@@ -196,8 +195,8 @@
 }
 
 .submit-btn button:hover {
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   -webkit-box-shadow: none;
           box-shadow: none;
   background: -webkit-gradient(linear, right top, left top, from(#2cc4e5), to(#e74a5d));

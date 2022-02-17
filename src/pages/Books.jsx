@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import BooksList from "../components/BooksList";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Location } from "react-router-dom";
 
 const Container = styled.div`
-  margin: 40px auto;
+  margin: 9rem auto 0;
   margin-top: 9rem;
   width: 85%;
+  min-height: 100vh;
 `;
 
 const SelectWrapper = styled.div`
@@ -29,28 +33,81 @@ const Option = styled.option`
 `;
 
 const Books = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  let category = location.pathname.split("/")[2];
+
+  // changing anything will not set the filter again to the default value, the component is already mounted but the excecuter of
+  //the code will read everything in the code then apply all the useEffect at the same time
+  const [filter, setFilter] = useState({
+    category: category,
+    sort: "date",
+    direction: "desc",
+  });
+
+  useEffect(() => {
+    setFilter({
+      ...filter,
+      ["category"]: category,
+    });
+  }, [category]);
+
+  const handleFilter = (e) => {
+    const value = e.target.value;
+    setFilter({
+      ...filter,
+      [e.target.name]: value,
+    });
+  };
+  const navigation = (e) => {
+    navigate(`/books/${e.target.value}`);
+  };
   return (
     <>
       <Container>
         <SelectWrapper>
-          <Select>
-            <Option hidden selected>
+          <Select
+            name="category"
+            onChange={(e) => {
+              handleFilter(e);
+              navigation(e);
+            }}
+          >
+            <Option value="all" selected={category === "all"}>
               All Categories
             </Option>
-            <Option>Action</Option>
-            <Option>Comedy</Option>
-            <Option>Drama</Option>
-            <Option>Horror</Option>
-            <Option>Mystery</Option>
-            <Option>Thriller</Option>
+            <Option value="adventure" selected={category === "adventure"}>
+              Adventure
+            </Option>
+            <Option value="horror" selected={category === "horror"}>
+              Horror
+            </Option>
+            <Option value="romance" selected={category === "romance"}>
+              Romance
+            </Option>
+            <Option value="mystery" selected={category === "mystery"}>
+              Mystery
+            </Option>
+            <Option value="fiction" selected={category === "fiction"}>
+              Fiction
+            </Option>
+            <Option value="history" selected={category === "history"}>
+              History
+            </Option>
           </Select>
-          <Select>
-            <Option selected>Sort by date</Option>
-            <Option>Sort by price</Option>
-            <Option>Sort by rating</Option>
-          </Select>
+          <div>
+            <Select name="sort" onChange={handleFilter}>
+              <Option value="date">Sort by date</Option>
+              <Option value="price">Sort by price</Option>
+              <Option value="rating">Sort by rating</Option>
+            </Select>
+            <Select name="direction" onChange={handleFilter}>
+              <Option value="desc">Dsc</Option>
+              <Option value="asc">Asc</Option>
+            </Select>
+          </div>
         </SelectWrapper>
-        <BooksList />
+        <BooksList {...filter} />
       </Container>
     </>
   );

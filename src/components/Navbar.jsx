@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { /*Info,*/ Search } from "@material-ui/icons";
+import { Info, Search } from "@material-ui/icons";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/MenuOpenTwoTone";
 import Img from "../images/Logo.png";
 import { Link } from "react-router-dom";
 import Announcement from "./Announcement";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   position: fixed;
   z-index: 99;
   width: 100%;
   top: 0;
-  background: #ffffff;
+  background: #ffffffb9;
+  backdrop-filter: blur(7px);
+
   @media only screen and (max-width: 768px) {
     backdrop-filter: blur(7px);
     background: #ffffffbc;
+    border-bottom: 2px solid #cac8c9;
   }
 `;
 
@@ -29,7 +33,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
   @media only screen and (max-width: 768px) {
     display: block;
-    border-bottom: 2px solid #cac8c9;
     > div {
       margin-bottom: 5px;
     }
@@ -42,13 +45,13 @@ const Wrapper = styled.div`
 const Left = styled.div`
   display: flex;
   align-items: center;
-  cursor: pointer;
 `;
 
 const Logo = styled.img`
-  width: 40px;
+  height: 40px;
   margin-right: 20px;
   pointer-events: none;
+  cursor: pointer;
 `;
 
 const LogoName = styled.h1`
@@ -85,9 +88,12 @@ const Option = styled.option`
   color: black;
 `;
 
-const SearchContainer = styled.div`
+const SearchContainer = styled.form`
   position: relative;
-  width: 100%;
+  width: 60%;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 const Input = styled.input`
   position: absolute;
@@ -123,13 +129,16 @@ const Button = styled.button`
 `;
 const Nav = styled.div`
   position: relative;
-  background: #282828;
+  background: #161616;
+  /* background: #0d0c22; */
+
   @media only screen and (max-width: 1100px) {
     margin-top: 3px;
   }
   @media only screen and (max-width: 768px) {
     position: fixed;
     background: #602656;
+    background-color: #e50914;
     height: 100vh;
     width: 220px;
     top: 0;
@@ -156,9 +165,9 @@ const ListItem = styled(Link)`
   text-decoration: none;
   list-style: none;
   margin-top: 2px;
-  padding: 8px 12px;
+  padding: 7px 12px;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   &::after {
     content: "";
     width: 0%;
@@ -179,6 +188,7 @@ const ListItem = styled(Link)`
     width: fit-content;
     margin: 40px auto;
     color: #ffffff;
+    font-weight: 500;
   }
 `;
 
@@ -207,22 +217,34 @@ const CloseButton = styled.button`
   }
 `;
 const Navbar = () => {
+  const navigate = useNavigate();
   const [showSidebar, setSowSidebar] = useState(false);
-  const [search, setSearch] = useState("title, author");
+  const [searchType, setSearchType] = useState("any");
+  const [search, setSearch] = useState();
   const handleChange = (e) => {
     e.preventDefault();
+    setSearchType(e.target.value);
+  };
+  const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (search) navigate(`books/search/${searchType}/${search}`);
+  };
+
   return (
     <>
       <Container>
         <Announcement />
         <Wrapper>
           <Left>
-            <Logo src={Img} />
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <Logo src={Img} />
+            </Link>
             <LogoName>
-              <span style={{ color: "#F21B3F" }}>BOOK</span>
-              <span style={{ color: "#0BB5CC" }}>LAND</span>
+              <span style={{ color: "#161616" }}>BOOK</span>
+              <span style={{ color: "#e50914" }}>LAND</span>
             </LogoName>
             <MenuToggle onClick={() => setSowSidebar(!showSidebar)}>
               <MenuIcon
@@ -237,13 +259,18 @@ const Navbar = () => {
               <Option selected hidden>
                 Search by
               </Option>
-              <Option value="title, author">title, author</Option>
+              <Option value="any">title, author</Option>
               <Option value="title">title</Option>
               <Option value="author">author</Option>
             </Select>
-            <SearchContainer>
-              <Input placeholder={`search by ${search} `} />
-              <Button>
+            <SearchContainer onSubmit={handleSubmit}>
+              <Input
+                placeholder={
+                  searchType === "any" ? "title, author" : searchType
+                }
+                onChange={handleSearchChange}
+              />
+              <Button type="submit">
                 <Search style={{ color: "inherit", fontSize: 28 }} />
               </Button>
             </SearchContainer>
@@ -255,9 +282,10 @@ const Navbar = () => {
           </CloseButton>
           <List>
             <ListItem to="/">HOME</ListItem>
-            <ListItem to="/books">BOOKS</ListItem>
+            <ListItem to="/books/all">BOOKS</ListItem>
             <ListItem to="/about">ABOUT</ListItem>
             <ListItem to="/contact">CONTACT</ListItem>
+            <ListItem to="/admin">ADMIN</ListItem>
           </List>
         </Nav>
       </Container>

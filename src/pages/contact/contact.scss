@@ -1,190 +1,219 @@
-@import '../../components/variables/variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+// @import "../../components/variables/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+// colors
 
+$red: #e74a5d;
+$mov: #602656;
+$blue: #0bb5cc;
+$blue-light: #2cc4e5;
 
-.contact-container{
-    margin-top: 6.8rem;
-    justify-content: center;
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    height: 500px;
-    .contact-content{
-        margin-top: 12rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        .contact-form{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .contact-social{
-            margin-right: 3.7rem;
-            width: 20%;
-            height: 220px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            background-color: rgb(255, 255, 250);
-            border-radius: 4px;
-            padding-bottom: 2rem;
-            align-self:flex-start;
-            .contact-social_head{
-                height: 75px;
-                width: 150px;
-                span{
-                    font-family: Varela round;
-                    font-size: 14px;
-                    padding-bottom: 2em;
-                    padding-left: 2rem;
-                    color: $mov;
-                }
-            }
-            div{
-                margin-top: 1.5rem;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                height: 40px;
-                a{
-                    align-items: center;
-                    display: flex;
-                    text-decoration: none;
-                    &:focus{
-                        color: #88569b;
-                    }
-                    svg{
-                        height: 20px;
-                        width: 20px;
-                        color: #fff;
-                        cursor: pointer;
-                    }
-                    span{
-                        padding-top: 0.4em;
-                        padding-left: 0.5em;
-                        text-transform: capitalize;
-                        font-family: Varela round;
-                        font-size: 12px;
-                    }
-                }
-                &:last-child{
-                    margin-bottom: 0;
-                }
-            }
-            .contact-social_instagram{
-                height: 45px;
-                svg{
-                    background: linear-gradient(to left, rgb(94, 58, 229), rgb(247,105,43));
-                    border-radius: 40px;
-                }
-            }
-            .contact-social_facebook{
-                svg{
-                    color: #3c5999;
-                }
-            }
-            .contact-social_linkedin{
-                a{
-                svg{
-                    color: #027fb1;
-                }
-                span{
-                    margin-left: .5em;
-                }
-            }
-            }
-            .contact-social_twitter{
-                a{
-                svg{
-                    color: #05aced;
-                }
-                span{
-                    padding-left: 0.9em;
-                    color: #783099;
-                }
-            }
-            }
-        }
-    }
+// mixins
+
+@mixin for-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin for-laptop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+@mixin for-desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-phone {
+  @media (max-width: 767px) {
+    @content;
+  }
 }
 
+.contact-container {
+  margin-top: 6.8rem;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  .contact-content {
+    margin-top: 12rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .contact-social {
+      margin-right: 3.7rem;
+      width: 20%;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      background-color: rgb(255, 255, 250);
+      border-radius: 4px;
+      padding-bottom: 2rem;
+      align-self: flex-start;
+      .contact-social_head {
+        height: 75px;
+        width: 150px;
+        span {
+          font-family: Varela round;
+          font-size: 14px;
+          padding-bottom: 2em;
+          padding-left: 2rem;
+          color: $mov;
+        }
+      }
+      div {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 40px;
+        a {
+          align-items: center;
+          display: flex;
+          text-decoration: none;
+          &:focus {
+            color: #88569b;
+          }
+          svg {
+            height: 20px;
+            width: 20px;
+            color: #fff;
+            cursor: pointer;
+          }
+          span {
+            padding-top: 0.4em;
+            padding-left: 0.5em;
+            text-transform: capitalize;
+            font-family: Varela round;
+            font-size: 12px;
+          }
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      .contact-social_instagram {
+        height: 45px;
+        svg {
+          background: linear-gradient(
+            to left,
+            rgb(94, 58, 229),
+            rgb(247, 105, 43)
+          );
+          border-radius: 40px;
+        }
+      }
+      .contact-social_facebook {
+        svg {
+          color: #3c5999;
+        }
+      }
+      .contact-social_linkedin {
+        a {
+          svg {
+            color: #027fb1;
+          }
+          span {
+            margin-left: 0.5em;
+          }
+        }
+      }
+      .contact-social_twitter {
+        a {
+          svg {
+            color: #05aced;
+          }
+          span {
+            padding-left: 0.9em;
+            color: #783099;
+          }
+        }
+      }
+    }
+  }
+}
 
 .submit-btn {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5rem;
+
+  button {
+    font-family: Varela round;
+    margin: 1em 0;
+    padding: 1.2em;
+    border-radius: 5px;
+    border: none;
+    width: 250px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    background: linear-gradient(to right, $blue-light, $red);
     display: flex;
-    flex-direction: column;
-    margin-left: 5rem;
+    justify-content: center;
+    align-items: center;
+  }
 
-    button {
-        font-family: Varela round;
-        margin: 1em 0;
-        padding: 1.2em;
-        border-radius: 5px;
-        border: none;
-        width: 250px;
-        text-transform: uppercase;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
-        color: #fff;
-        cursor: pointer;
-        outline: none;
-        background: linear-gradient(to right, $blue-light, $red);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    button:hover {
-        transition: all .3s ease;
-        box-shadow: none;
-        background: linear-gradient(to left, $blue-light, $red);
-    }
+  button:hover {
+    transition: all 0.3s ease;
+    box-shadow: none;
+    background: linear-gradient(to left, $blue-light, $red);
+  }
 }
 @include for-desktop {
-    .submit-btn{
-        button{
-            width: 400px;
-        }
+  .submit-btn {
+    button {
+      width: 400px;
     }
+  }
 }
 @media (max-width: 520px) {
-    .contact-container {
-        margin-top: 6.8rem;
-        display: flex;
-        flex-direction: column;
+  .contact-container {
+    margin-top: 6.8rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .contact-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      .contact-form {
+        margin-left: -4rem;
+        z-index: 1;
+      }
+      .contact-social {
+        z-index: 2;
+        flex-direction: row;
         width: 100%;
-        .contact-content {
+        align-items: center;
+        justify-content: center;
+        .contact-social_head {
+          display: none;
+        }
+        div {
+          a {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            width: 100%;
-            .contact-form {
-                margin-left: -4rem;
-                z-index: 1;
+            svg {
+              height: 25px;
+              width: 25px;
             }
-            .contact-social{
-                z-index: 2;
-                flex-direction: row;
-                width: 100%;
-                align-items: center;
-                justify-content: center;
-                .contact-social_head{
-                    display: none;
-                }
-                div{
-                    a{
-                        display: flex;
-                        flex-direction: column;
-                        svg{
-                            height: 25px;
-                            width: 25px;
-                        }
-                    }
-                }
-            }
+          }
         }
-
+      }
     }
+  }
 }

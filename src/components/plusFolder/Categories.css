@@ -21,7 +21,7 @@
 }
 
 .container {
-  width: 90%;
+  width: 75%;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -32,9 +32,7 @@
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 20px;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 /*# sourceMappingURL=Categories.css.map */
