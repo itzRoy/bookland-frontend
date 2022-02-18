@@ -11,7 +11,7 @@
 .textarea label textarea {
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  background-color: #fffffa;
+  background-color: ivory;
   padding: 2.7em;
   border-radius: 5px;
   width: 250px;
@@ -28,7 +28,7 @@
   left: 12px;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  color: #2cc4e5;
+  color: #fe0302;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   font-weight: 300;
@@ -42,14 +42,14 @@
 }
 
 .textarea label textarea:focus {
-  border: 2px solid #e74a5d;
+  border: 2px solid #fe0302;
 }
 
 .textarea label textarea:focus + span {
   top: -79px;
   font-size: 10px;
-  background: -webkit-gradient(linear, left top, right top, from(#2cc4e5), to(#e74a5d));
-  background: linear-gradient(to right, #2cc4e5, #e74a5d);
+  background: -webkit-gradient(linear, left top, right top, from(#000), to(#fe0302));
+  background: linear-gradient(to right, #000, #fe0302);
   border-radius: 4px;
   padding: 0 5px;
   color: #fff;

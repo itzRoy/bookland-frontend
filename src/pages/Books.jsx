@@ -3,7 +3,7 @@ import styled from "styled-components";
 import BooksList from "../components/BooksList";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Location } from "react-router-dom";
+import AdminButton from "../components/Button/AdminButton";
 
 const Container = styled.div`
   margin: 9rem auto 0;
@@ -79,6 +79,9 @@ const Books = () => {
             <Option value="adventure" selected={category === "adventure"}>
               Adventure
             </Option>
+            <Option value="thriller" selected={category === "thriller"}>
+              Thriller
+            </Option>
             <Option value="horror" selected={category === "horror"}>
               Horror
             </Option>
@@ -109,6 +112,7 @@ const Books = () => {
         </SelectWrapper>
         <BooksList {...filter} />
       </Container>
+      <a href="/login"><AdminButton /></a>
     </>
   );
 };

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Admin = () => {
+const AdminView = () => {
   // const dispatch = useDispatch();
   // const products = useSelector((state) => state.product.products);
   const [books, setBooks] = useState([]);
@@ -37,7 +37,7 @@ const Admin = () => {
     {
       field: "title",
       headerName: "Book",
-      width: 400,
+      width: 350,
       renderCell: (params) => {
         return (
           <div className="productListItem">
@@ -47,15 +47,20 @@ const Admin = () => {
         );
       },
     },
-    { field: "year", headerName: "Year", width: 250 },
+    { field: "year", headerName: "Year", width: 150 },
     {
       field: "rating",
       headerName: "Rating",
-      width: 160,
+      width: 150,
+    },
+    {
+      field: "price",
+      headerName: "Price",
+      width: 150,
     },
     {
       field: "action",
-      headerName: "Action",
+      headerName: "Actions",
       width: 140,
       renderCell: (params) => {
         return (
@@ -75,11 +80,6 @@ const Admin = () => {
 
   return (
     <div className="adminContainer">
-      <div className="createContainer">
-        <Link to="/book/create">
-          <button className="createButton">Create Book</button>
-        </Link>
-      </div>
       <div className="gridContainer">
         <DataGrid
           rowHeight={95}
@@ -95,4 +95,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AdminView;

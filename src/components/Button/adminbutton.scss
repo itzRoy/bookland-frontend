@@ -1,6 +1,6 @@
 .Admin-btn{
-    background-color: rgb(221, 218, 218);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+    background-color: black;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.549);
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -10,7 +10,10 @@
     align-self: right;
     left: 100;
     cursor : pointer;
+    margin-bottom: 5px;
+    margin-left: 10px;
     svg{
+        margin-left: 4px;
         path{
             stroke: #fe0302;
         }

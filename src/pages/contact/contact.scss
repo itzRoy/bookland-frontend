@@ -31,14 +31,13 @@ $blue-light: #2cc4e5;
 }
 
 .contact-container {
-  margin-top: 6.8rem;
   justify-content: center;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 2rem auto;
   display: flex;
   flex-direction: column;
   .contact-content {
-    margin-top: 12rem;
+    margin-top: 8rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -151,6 +150,7 @@ $blue-light: #2cc4e5;
   button {
     font-family: Varela round;
     margin: 1em 0;
+    font-size:14px;
     padding: 1.2em;
     border-radius: 5px;
     border: none;
@@ -160,7 +160,7 @@ $blue-light: #2cc4e5;
     color: #fff;
     cursor: pointer;
     outline: none;
-    background: linear-gradient(to right, $blue-light, $red);
+    background: linear-gradient(to right, #000, #fe0302);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,13 +169,13 @@ $blue-light: #2cc4e5;
   button:hover {
     transition: all 0.3s ease;
     box-shadow: none;
-    background: linear-gradient(to left, $blue-light, $red);
+    background: linear-gradient(to left, #000, #fe0302);
   }
 }
 @include for-desktop {
   .submit-btn {
     button {
-      width: 400px;
+      width: 500px;
     }
   }
 }

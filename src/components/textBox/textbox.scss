@@ -8,7 +8,7 @@
         font-size: 1.5em;
         textarea{
             box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
-            background-color: rgb(255, 255, 250);
+            background-color: rgb(255, 255, 240);
             padding: 2.7em;
             border-radius: 5px;
             width: 250px;
@@ -23,7 +23,7 @@
             top: -170%;
             left: 12px;
             transform: translate(0, -50%);
-            color: $blue-light;
+            color: #fe0302;
             transition: all 0.3s ease;
             font-weight: 300;
             font-size: 0.85rem;
@@ -34,13 +34,13 @@
         }
 
         textarea:focus {
-            border: 2px solid $red;
+            border: 2px solid #fe0302;
         }
 
         textarea:focus+span {
             top: -79px;
             font-size: 10px;
-            background: linear-gradient(to right, $blue-light, $red);
+            background: linear-gradient(to right, #000, #fe0302);
             border-radius: 4px;
             padding: 0 5px;
             color: #fff;

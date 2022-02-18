@@ -7,11 +7,11 @@
 
     label {
         position: relative;
-        font-size: 1rem;
+        font-size: 1rem; 
 
         input {
             box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
-            background-color: rgb(255, 255, 250);
+            background-color: rgb(255, 255, 240);
             padding: 1em;
             border-radius: 5px;
             width: 250px;
@@ -19,7 +19,7 @@
             font-size: 1rem;
             border: 2px solid transparent;
             font-family: Varela round;
-            color: $mov;
+            color: #fe0302;
         }
 
         span {
@@ -27,7 +27,7 @@
             top: 50%;
             left: 12px;
             transform: translate(0, -50%);
-            color: $blue-light;
+            color: #fe0302;
             transition: all 0.3s ease;
             font-weight: 300;
             font-size: 0.85rem;
@@ -39,13 +39,13 @@
         }
 
         input:focus {
-            border: 2px solid $red;
+            border: 2px solid #fe0302;
         }
 
         input:focus+span {
             top: -15px;
             font-size: 10px;
-            background: linear-gradient(to right, $blue-light, $red);
+            background: linear-gradient(to right, #000, #fe0302);
             border-radius: 4px;
             padding: 0 5px;
             color: #fff;

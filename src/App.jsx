@@ -4,10 +4,9 @@ import About from "./pages/About";
 import Books from "./pages/Books";
 import Book from "./pages/Book";
 import BookEdit from "./pages/BookEdit";
-import BookCreate from "./pages/BookCreate";
 import Contact from "./pages/Contact ";
-import Admin from "./pages/Admin";
-import AdminButton from "./components/Button/AdminButton";
+import Admin from "./pages/AdminDashboard/Admin";
+import AdminLogin from './pages/AdminLogin/AdminLogin'
 import Footer from "./components/Footer";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -25,11 +24,10 @@ const App = () => {
           <Route path="/books/search/:id/:id" element={<Books />} />
           <Route path="/book/:id" element={<Book />} />
           <Route path="/book/edit/:id" element={<BookEdit />} />
-          <Route path="/book/create" element={<BookCreate />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={isAdmin? <Admin /> : <Books />} />
+          <Route path='/login' element={<AdminLogin />}/>
         </Routes>
-        <a href="/admin"><AdminButton /></a>
       </Router>
       <Footer />
     </>
