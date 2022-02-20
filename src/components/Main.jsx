@@ -1,8 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-// import Img1 from "../images/bgpictures/bgEdited.jpg";
 import Img1 from "../images/slides/background.jpg";
-// import Img2 from "../images/slides/bg2edited.png";
 import { useNavigate } from "react-router-dom";
 
 const SlideFromLeft = keyframes`
@@ -63,6 +61,7 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 768px) {
     width: 100%;
     margin: 30px;
+    text-align: center;
   }
 `;
 
@@ -86,13 +85,13 @@ const Paragraph = styled.p`
   font-size: 18px;
   @media only screen and (max-width: 768px) {
     line-height: 30px;
-    font-size: 15px;
+    font-size: 17px;
   }
 `;
 
 const Button = styled.button`
   animation: ${SlideFromBottom} 1.5s ease-in-out;
-  position: absolute;
+  /* position: absolute; */
   padding: 8px 18px;
   border: none;
   color: white;

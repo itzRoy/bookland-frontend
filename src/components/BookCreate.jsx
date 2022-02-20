@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SlideFromLeft = keyframes`
   0%{
@@ -27,11 +29,12 @@ const SlideFromRight = keyframes`
 `;
 
 const Container = styled.div`
-  width: 80%;
-  margin: 9rem auto 6rem;
+  width: 60%;
+  margin: auto;
 `;
 
 const Wrapper = styled.div`
+  margin: 20px auto;
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -48,8 +51,9 @@ const Label = styled.label`
 const Img = styled.img`
   min-height: 300px;
   width: 250px;
+  min-width: 250px;
   border: 1px solid black;
-  animation: ${SlideFromLeft} 1.2s ease-in-out;
+  animation: ${SlideFromLeft} 1.5s ease-in-out;
   @media only screen and (max-width: 768px) {
     height: 40vh;
   }
@@ -59,7 +63,7 @@ const InfoContainer = styled.form`
   padding: 10px 30px;
   position: relative;
   flex: 1;
-  animation: ${SlideFromRight} 1.2s ease-in-out;
+  animation: ${SlideFromRight} 1.5s ease-in-out;
   @media only screen and (max-width: 768px) {
     text-align: center;
     * {
@@ -69,7 +73,7 @@ const InfoContainer = styled.form`
 `;
 const Title = styled.input`
   color: #252525;
-  font-size: 30px;
+  font-size: 27px;
   margin-bottom: 10px;
   display: block;
   padding: 3px;
@@ -99,7 +103,7 @@ const Description = styled.textarea`
   line-height: 25px;
   font-weight: 500;
   display: block;
-  width: 70%;
+  width: 100%;
   height: 400px;
   padding: 20px;
   @media only screen and (max-width) {
@@ -149,13 +153,13 @@ const Button = styled.button`
     background: #141514;
   }
   @media only screen and (max-width: 768px) {
-    font-size: 13px;
     margin: 15px auto;
   }
 `;
 
 const UploadButton = styled(Button)`
   background: #d00303;
+  font-size: 13px;
 
   &:hover {
     transition: all 0.3s ease-in-out;
@@ -164,6 +168,7 @@ const UploadButton = styled(Button)`
 `;
 
 const BookCreate = () => {
+  toast.configure();
   const [book, setBook] = useState({});
   const [image, setImage] = useState();
   const [imageUrl, setImageUrl] = useState();
@@ -176,6 +181,7 @@ const BookCreate = () => {
           ...book,
         },
       });
+      toast.success("the book has been added successfully");
       console.log(res);
     } catch (err) {
       console.log(err);
@@ -214,6 +220,8 @@ const BookCreate = () => {
             ["img"]: img,
           });
         });
+    } else {
+      toast.warn("Please choose an image before upload");
     }
   };
   return (
@@ -265,7 +273,9 @@ const BookCreate = () => {
               step={0.01}
             />
             <Input type="file" onChange={handleImage} required />
-            <UploadButton onClick={UploadImage}>Upload Image</UploadButton>
+            <UploadButton onClick={UploadImage} type="button">
+              Upload Image
+            </UploadButton>
             <Button type="submit">Create Book</Button>
           </InfoContainer>
         </Wrapper>

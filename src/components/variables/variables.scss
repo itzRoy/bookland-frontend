@@ -8,22 +8,22 @@ $blue-light: #2cc4e5;
 // mixins
 
 @mixin for-tablet {
-    @media (min-width: 768px) {
-        @content;
-    }
+  @media (min-width: 768px) {
+    @content;
+  }
 }
 @mixin for-laptop {
-    @media (min-width: 992px) {
-        @content;
-    }
+  @media (min-width: 992px) {
+    @content;
+  }
 }
 @mixin for-desktop {
-    @media (min-width: 1200px) {
-        @content;
-    }
+  @media (min-width: 1200px) {
+    @content;
+  }
 }
 @mixin for-phone {
-    @media (max-width: 767px) {
-        @content;
-    }
+  @media (max-width: 768px) {
+    @content;
+  }
 }

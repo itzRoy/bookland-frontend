@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import "./CategoryCard.scss";
 
 const CategoryCard = (item) => {
@@ -8,7 +7,7 @@ const CategoryCard = (item) => {
       <div className="card-container">
         <img src={item.img} alt="" />
         <div class="layer">
-          <h3 >{item.genre}</h3>
+          <h3>{item.genre}</h3>
         </div>
       </div>
     </>

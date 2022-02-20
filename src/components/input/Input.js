@@ -1,16 +1,18 @@
-import "./input.css";
+import "./input.scss";
 
-const Input = ({name, type, text}) => {
+const Input = (props) => {
   return (
     <div className="input">
       <label>
         <input
-          type={type}
-          name={name}
+          type={props.type}
+          name={props.name}
           placeholder="&nbsp;"
           autoComplete="off"
+          onBlur={props.setvalue}
+          required
         />
-        <span>{text}</span>
+        <span>{props.text}</span>
       </label>
     </div>
   );

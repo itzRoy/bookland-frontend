@@ -1,12 +1,13 @@
 import {
   Facebook,
   Instagram,
+  LinkedIn,
   MailOutline,
   Phone,
-  Pinterest,
   Room,
   Twitter,
 } from "@material-ui/icons";
+
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -49,17 +50,22 @@ const SocialContainer = styled.div`
   display: flex;
 `;
 
-const SocialIcon = styled.div`
+export const SocialIcon = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
   color: white;
   background-color: ${(props) => props.color};
+  background: ;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 20px;
   cursor: pointer;
+`;
+
+export const InstagramDiv = styled(SocialIcon)`
+  background: linear-gradient(to left, rgb(52, 9, 206), rgb(233, 75, 8));
 `;
 
 const Title = styled.h2``;
@@ -101,17 +107,17 @@ const Footer = () => {
             Our social media accounts :
           </Desc>
           <SocialContainer>
-            <SocialIcon color="#01236f">
+            <SocialIcon color="#3b5998">
               <Facebook />
             </SocialIcon>
-            <SocialIcon color="#c01717">
+            <InstagramDiv>
               <Instagram />
-            </SocialIcon>
+            </InstagramDiv>
             <SocialIcon color="#1289e4">
               <Twitter />
             </SocialIcon>
-            <SocialIcon color="#d00221">
-              <Pinterest />
+            <SocialIcon color="#0d648c">
+              <LinkedIn />
             </SocialIcon>
           </SocialContainer>
         </Left>

@@ -1,29 +1,31 @@
-import "./adminlogin.css";
+import "./adminlogin.scss";
 import Input from "../../components/input/Input";
-import axios from "axios";
-import { useEffect, useState } from "react";
-
-const initialState = {
-  password: "",
-};
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
+  const [inputValue, setInputvalue] = useState()
+  const history = useNavigate()
+  const handleClick = async() =>{
+    (inputValue === 'cMsG9TRoR' ? history('/admin/cMsG9TRoR') : history('/login'))
+  }
   return (
-    <div className="admin-login">
-      <p>Please insert your private Key</p>
-      <div>
-        <Input
-          text="Secret Key"
-          name="password"
-          type="text"
-          handleChange={handleChange}
-        />
-        <div className="submit-btn">
-          <button>Submit</button>
+      <div className="admin-container">
+        <div className="admin-wrapper">
+          <form className="admin-form" >
+            <p>Please insert your private Key</p>
+            <Input
+              text="Secret Key"
+              name="password"
+              type="text"
+              setvalue={(e) => setInputvalue(e.target.value)}
+            />
+            <button className="submit-btn" type="submit" onClick={()=>{handleClick()}}>Submit</button>
+          </form>
         </div>
       </div>
-    </div>
   );
 };
+
 
 export default AdminLogin;

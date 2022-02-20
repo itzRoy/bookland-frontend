@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Info, Search } from "@material-ui/icons";
+import { Search } from "@material-ui/icons";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/MenuOpenTwoTone";
 import Img from "../images/Logo.png";
@@ -285,7 +285,6 @@ const Navbar = () => {
             <ListItem to="/books/all">BOOKS</ListItem>
             <ListItem to="/about">ABOUT</ListItem>
             <ListItem to="/contact">CONTACT</ListItem>
-            <ListItem to="/admin">ADMIN</ListItem>
           </List>
         </Nav>
       </Container>

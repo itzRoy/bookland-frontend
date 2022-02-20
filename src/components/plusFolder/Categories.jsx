@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import "./Categories.scss";
 import CategoryCard from "./CategoryCard";
 import { categoriesData } from "./categoriesData";

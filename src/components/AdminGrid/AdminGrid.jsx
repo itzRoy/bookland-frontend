@@ -1,11 +1,14 @@
-import "./Admin.scss";
+import "./AdminGrid.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminView = () => {
+  toast.configure();
   // const dispatch = useDispatch();
   // const products = useSelector((state) => state.product.products);
   const [books, setBooks] = useState([]);
@@ -30,6 +33,7 @@ const AdminView = () => {
       console.log(err);
     }
     setBooks(res.data);
+    toast.success("the book  has been deleted successfully");
   };
 
   const columns = [
@@ -70,7 +74,14 @@ const AdminView = () => {
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => handleDelete(params.row._id)}
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Are you sure that you want to delete this book"
+                  )
+                )
+                  handleDelete(params.row._id);
+              }}
             />
           </>
         );

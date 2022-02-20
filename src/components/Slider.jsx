@@ -4,17 +4,10 @@ import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { Link } from "react-router-dom";
-// Styles must use direct files imports
-import "swiper/swiper.scss"; // core Swiper
+
+import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
 import "swiper/components/navigation/navigation.scss";
-
-import Img1 from "../images/bsbooks/bs1.jpg";
-import Img2 from "../images/bsbooks/bs2.jpg";
-import Img3 from "../images/bsbooks/bs3.jpg";
-import Img4 from "../images/bsbooks/bs4.jpg";
-import Img5 from "../images/bsbooks/bs5.jpg";
-import Img6 from "../images/bsbooks/bs6.jpg";
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -74,7 +67,7 @@ const Slider = () => {
       <Text>Latest Books</Text>
       <Wrapper>
         <Swiper
-          navigation
+          initialSlide={4}
           autoplay={{ delay: 500, disableOnInteraction: false }}
           loop={true}
           speed={2000}
@@ -94,10 +87,10 @@ const Slider = () => {
             },
           }}
           style={{
-            paddingBottom: "30px",
-            paddingLeft: "50px",
-            paddingRight: "50px",
+            padding: "30px 30px 40px 30px",
             width: "100%",
+            borderRight: "6px solid red",
+            borderLeft: "6px solid red",
           }}
         >
           {latestBooks.map((book) => (

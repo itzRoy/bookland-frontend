@@ -37,8 +37,6 @@ const Books = () => {
   const location = useLocation();
   let category = location.pathname.split("/")[2];
 
-  // changing anything will not set the filter again to the default value, the component is already mounted but the excecuter of
-  //the code will read everything in the code then apply all the useEffect at the same time
   const [filter, setFilter] = useState({
     category: category,
     sort: "date",
@@ -112,7 +110,9 @@ const Books = () => {
         </SelectWrapper>
         <BooksList {...filter} />
       </Container>
-      <a href="/login"><AdminButton /></a>
+      <a href="/login">
+        <AdminButton />
+      </a>
     </>
   );
 };

@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-// import { Books } from "../data";
-import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
-import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-
-// const item = Books[1];
 
 const SlideFromLeft = keyframes`
   0%{
@@ -24,7 +19,7 @@ const SlideFromLeft = keyframes`
 const SlideFromRight = keyframes`
   0%{
         transform: translateX(100%);
-         opacity : 0;
+        opacity : 0;
     }
 
     100%{
@@ -34,11 +29,15 @@ const SlideFromRight = keyframes`
 `;
 
 const Container = styled.div`
-  width: 80%;
-  margin: 9rem auto 6rem;
+  margin-top: 6.9rem;
+  min-height: 80vh;
+  overflow: hidden;
 `;
 
 const Wrapper = styled.div`
+  width: 80%;
+  margin: auto;
+  padding: 50px 0;
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -51,7 +50,7 @@ const Wrapper = styled.div`
 
 const Img = styled.img`
   height: 60vh;
-  animation: ${SlideFromLeft} 1.2s ease-in-out;
+  animation: ${SlideFromLeft} 1.7s ease-in-out;
   @media only screen and (max-width: 768px) {
     height: 40vh;
   }
@@ -61,7 +60,7 @@ const InfoContainer = styled.div`
   flex: 1;
   padding: 10px 30px;
   position: relative;
-  animation: ${SlideFromRight} 1.2s ease-in-out;
+  animation: ${SlideFromRight} 1.7s ease-in-out;
   @media only screen and (max-width: 768px) {
     text-align: center;
   }

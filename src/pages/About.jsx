@@ -1,7 +1,8 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import Img1 from "../images/bgpictures/about.jpg";
+import { useNavigate } from "react-router-dom";
+import Img2 from "../images/bg.jpg";
 
 const SlideFromBottom = keyframes`
  0%{
@@ -23,8 +24,8 @@ const Container = styled.div`
   height: 150vh;
   display: flex;
   /* height: 150vh; */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(${Img1});
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(${Img2});
   background-size: cover;
   background-position-x: center;
 `;
@@ -32,12 +33,12 @@ const Container = styled.div`
 const Wrapper = styled.div`
   position: relative;
   width: 70vw;
-  margin: 20px auto;
+  margin: 40px auto;
   display: flex;
   gap: 30px;
   flex-direction: column;
   align-items: center;
-  animation: ${SlideFromBottom} 1s ease-in-out;
+  animation: ${SlideFromBottom} 1.7s ease-in-out;
   @media only screen and (max-width: 768px) {
     width: 80vw;
   }
@@ -46,11 +47,11 @@ const Wrapper = styled.div`
 const Title = styled.h1`
   font-size: 4vw;
   font-weight: bold;
-  color: white;
+  color: #f70814;
 `;
 
 const Text = styled.p`
-  font-size: 18px;
+  font-size: 20px;
   line-height: 35px;
   margin-bottom: 10px;
   text-align: center;
@@ -66,6 +67,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const About = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Container>
@@ -95,6 +97,7 @@ const About = () => {
             <Button
               variant="contained"
               style={{ background: "red", color: "white" }}
+              onClick={() => navigate("/contact")}
             >
               Contact us
             </Button>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SlideFromLeft = keyframes`
   0%{
@@ -48,7 +50,7 @@ const Label = styled.label`
 
 const Img = styled.img`
   height: 60vh;
-  animation: ${SlideFromLeft} 1.2s ease-in-out;
+  animation: ${SlideFromLeft} 1.5s ease-in-out;
   @media only screen and (max-width: 768px) {
     height: 40vh;
   }
@@ -58,7 +60,7 @@ const InfoContainer = styled.form`
   padding: 10px 30px;
   position: relative;
   flex: 1;
-  animation: ${SlideFromRight} 1.2s ease-in-out;
+  animation: ${SlideFromRight} 1.5s ease-in-out;
   @media only screen and (max-width: 768px) {
     text-align: center;
     * {
@@ -164,6 +166,7 @@ const UploadButton = styled(Button)`
 
 const BookEdit = () => {
   const location = useLocation();
+  toast.configure();
   const id = location.pathname.split("/")[3];
   const [book, setBook] = useState({});
   const [updates, setUpdates] = useState();
@@ -194,9 +197,11 @@ const BookEdit = () => {
           },
         }
       );
+      toast.success("the book has been updated successfully");
       console.log(res);
     } catch (err) {
       console.log(err);
+      toast.warning("there was a problem when updating the book");
     }
   };
 
