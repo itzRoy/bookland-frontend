@@ -17,7 +17,7 @@ const AdminLogin = ({ isAdmin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (inputValue === "rabi3") { isAdmin(true); navigate("/admin") }
+    if (inputValue === "cMsG9TRoR") { isAdmin(true); navigate("/admin") }
     else {
       isAdmin(false);
       setStatus("Please Try Again !")
