@@ -37,12 +37,12 @@ const Contact = () => {
   const [userMail, setUserMail] = useState();
 
   const sendEmail = (e) => {
-    e.preventDefault();
     console.log(form.current);
     emailjs
       .sendForm(
         "service_bp5i3x7",
         "template_p29ffg9",
+        e.value,
         form.current,
         "user_z4qU2XvXdxi4sUTtnIf5I"
       )
@@ -59,16 +59,24 @@ const Contact = () => {
     <div className="contact-container">
       <div className="social-media">
         <SocialIconContact color="#3b5998">
-          <Facebook style={{ fontSize: "33px" }} />
+          <a href="http://www.facebook.com" target="_blank" rel="noreferrer">
+            <Facebook style={{ fontSize: "33px" }} />
+          </a>
         </SocialIconContact>
         <InstagramContact>
-          <Instagram style={{ fontSize: "33px" }} />
+          <a href="http://www.instagram.com" target="_blank" rel="noreferrer">
+            <Instagram style={{ fontSize: "33px" }} />
+          </a>
         </InstagramContact>
         <SocialIconContact color="#1289e4">
-          <Twitter style={{ fontSize: "33px" }} />
+          <a href="http://www.twitter.com" target="_blank" rel="noreferrer">
+            <Twitter style={{ fontSize: "33px" }} />
+          </a>
         </SocialIconContact>
         <SocialIconContact color="#0d648c">
-          <LinkedIn style={{ fontSize: "33px" }} />
+          <a href="http://www.linkedin.com" target="_blank" rel="noreferrer">
+            <LinkedIn style={{ fontSize: "33px" }} />
+          </a>
         </SocialIconContact>
       </div>
       <div className="contact-content">

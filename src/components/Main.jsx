@@ -53,6 +53,9 @@ const Container = styled.div`
   background-position-x: left;
   @media only screen and (max-width: 768px) {
     height: 60vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(${Img1});
+    background-position: 85%;
   }
 `;
 const Wrapper = styled.div`
@@ -66,7 +69,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  animation: ${SlideFromTop} 1.5s ease-in-out;
+  animation: ${SlideFromTop} 2s ease-in-out;
   font-size: 50px;
   color: black;
   font-family: Helvetica;
@@ -74,23 +77,25 @@ const Title = styled.h1`
   margin: 20px 0;
   @media only screen and (max-width: 768px) {
     font-size: 30px;
+    color: white;
   }
 `;
 
 const Paragraph = styled.p`
-  animation: ${SlideFromLeft} 1.5s ease-in-out;
+  animation: ${SlideFromLeft} 2s ease-in-out;
   color: #000000;
   font-weight: 500;
   margin: 20px 0 30px;
-  font-size: 18px;
+  font-size: 19px;
   @media only screen and (max-width: 768px) {
     line-height: 30px;
-    font-size: 17px;
+    font-size: 16px;
+    color: white;
   }
 `;
 
 const Button = styled.button`
-  animation: ${SlideFromBottom} 1.5s ease-in-out;
+  animation: ${SlideFromBottom} 2s ease-in-out;
   /* position: absolute; */
   padding: 8px 18px;
   border: none;
@@ -104,7 +109,7 @@ const Button = styled.button`
     background: #b50303;
   }
   @media only screen and (max-width: 768px) {
-    font-size: 13px;
+    font-size: 15px;
   }
 `;
 

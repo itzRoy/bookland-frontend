@@ -9,7 +9,7 @@ const Container = styled.div`
   margin: 9rem auto 0;
   margin-top: 9rem;
   width: 85%;
-  min-height: 100vh;
+  min-height: 60vh;
 `;
 
 const SelectWrapper = styled.div`

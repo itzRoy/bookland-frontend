@@ -213,7 +213,9 @@ const BookEdit = () => {
       [e.target.name]: value,
     });
   };
-
+  useEffect(() => {
+    console.log(updates);
+  });
   const handleImage = (e) => {
     e.preventDefault();
     let img = e.target.files[0];
@@ -291,7 +293,9 @@ const BookEdit = () => {
               name="price"
             />
             <Input type={"file"} onChange={handleImage} />
-            <UploadButton onClick={UploadImage}>Upload Image</UploadButton>
+            <UploadButton onClick={UploadImage} type="button">
+              Upload Image
+            </UploadButton>
             <Button type="submit">Update Book</Button>
           </InfoContainer>
         </Wrapper>

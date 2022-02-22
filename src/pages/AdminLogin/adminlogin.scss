@@ -14,7 +14,7 @@
     margin: auto;
     padding: 30px;
     border: 1px solid black;
-    backdrop-filter: blur(7px);
+    backdrop-filter: blur(30px);
     background: #ffffff3a;
     border-radius: 50px;
     .admin-form {
@@ -27,6 +27,12 @@
         margin-bottom: 35px;
         font-size: 19px;
         text-transform: uppercase;
+      }
+
+      .status-text {
+        font-size: 17px;
+        color: rgb(188, 0, 0);
+        margin-top: 10px;
       }
     }
   }

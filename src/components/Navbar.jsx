@@ -209,14 +209,14 @@ const CloseButton = styled.button`
   color: white;
   background-color: transparent;
   &:hover {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.6s ease-in-out;
     color: black;
   }
   @media only screen and (min-width: 768px) {
     display: none;
   }
 `;
-const Navbar = () => {
+const Navbar = ({ admin }) => {
   const navigate = useNavigate();
   const [showSidebar, setSowSidebar] = useState(false);
   const [searchType, setSearchType] = useState("any");
@@ -278,13 +278,14 @@ const Navbar = () => {
         </Wrapper>
         <Nav Show={showSidebar}>
           <CloseButton onClick={() => setSowSidebar(!showSidebar)}>
-            <CloseIcon style={{ fontSize: 26 }} />
+            <CloseIcon style={{ fontSize: 32 }} />
           </CloseButton>
           <List>
             <ListItem to="/">HOME</ListItem>
             <ListItem to="/books/all">BOOKS</ListItem>
             <ListItem to="/about">ABOUT</ListItem>
             <ListItem to="/contact">CONTACT</ListItem>
+            {admin && <ListItem to="/admin">ADMIN</ListItem>}
           </List>
         </Nav>
       </Container>
