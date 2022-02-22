@@ -1,0 +1,71 @@
+@import "../../components/variables/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+.admin-container {
+  min-height: 60vh;
+  background: url("../../images/contact.jpg");
+  background-size: cover;
+  margin-top: 6.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .admin-wrapper {
+    // animation: DownToUp 1.5s ease-in-out;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid black;
+    backdrop-filter: blur(30px);
+    background: #ffffff3a;
+    border-radius: 50px;
+    .admin-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        color: black;
+        font-family: "Varela round";
+        margin-bottom: 35px;
+        font-size: 19px;
+        text-transform: uppercase;
+      }
+
+      .status-text {
+        font-size: 17px;
+        color: rgb(188, 0, 0);
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .submit-btn {
+    font-family: Varela round;
+    font-size: 16px;
+    padding: 0.85em;
+    border-radius: 5px;
+    border: none;
+    width: 370px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    background: linear-gradient(to right, #000, #fe0302);
+  }
+
+  button:hover {
+    box-shadow: none;
+    background: linear-gradient(to left, #000, #fe0302);
+    transition: all 0.3s ease;
+  }
+
+  @include for-phone {
+    .admin-wrapper .admin-form {
+      p {
+        font-size: 15px;
+      }
+    }
+    .submit-btn {
+      width: 250px;
+    }
+  }
+}

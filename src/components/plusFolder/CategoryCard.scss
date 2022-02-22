@@ -1,0 +1,76 @@
+.card-container {
+  width: 320px;
+  height: 220px;
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+  box-shadow: 0 0 7px 0 #ff0000;
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  img {
+    width: 100%;
+  }
+
+  p {
+    padding: 15px;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  h4 {
+    padding-top: 10px;
+  }
+    @media only screen and (max-width: 768px) {
+      width: 280px;
+      height: 180px;
+    }
+}
+
+.btn {
+  padding: 8px 12px;
+  background: red;
+  color: white;
+  border: none;
+  width: fit-content;
+  margin: 10px;
+  &:hover {
+    background: rgb(247, 25, 25);
+    cursor: pointer;
+  }
+  align-self: center;
+}
+
+.layer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.layer:hover {
+  background-color: rgba(255, 0, 0, 0.6);
+  transition: 1s;
+}
+
+.layer h3 {
+  width: 100%;
+  font-weight: 500;
+  color: white;
+  backdrop-filter: blur(7px);
+  background: #ff0000a6;
+  font-size: 26px;
+  position: absolute;
+  bottom: 20%;
+  opacity: 1;
+}
+
+.layer:hover h3 {
+  bottom: 45%;
+  opacity: 1;
+  transition: 0.5s;
+  background: transparent;
+  backdrop-filter: blur(0px);
+}

@@ -1,0 +1,29 @@
+// colors
+
+$red: #e74a5d;
+$mov: #602656;
+$blue: #0bb5cc;
+$blue-light: #2cc4e5;
+
+// mixins
+
+@mixin for-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin for-laptop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+@mixin for-desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-phone {
+  @media (max-width: 768px) {
+    @content;
+  }
+}

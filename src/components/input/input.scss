@@ -1,0 +1,66 @@
+@import "../variables/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+.input {
+  margin: 0 auto 1.5em;
+
+  label {
+    position: relative;
+    font-size: 1rem;
+
+    input {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      background-color: rgba(255, 255, 255, 0.152);
+      backdrop-filter: blur(10px);
+      padding: 0.8em;
+      border-radius: 5px;
+      width: 370px;
+      outline: none;
+      font-size: 1rem;
+      border: 1px solid black;
+      font-family: Varela round;
+      outline: none;
+      color: black;
+    }
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translate(0, -50%);
+      color: #fe0302;
+      transition: all 0.3s ease;
+      font-weight: 300;
+      font-size: 0.85rem;
+    }
+
+    input:not(:placeholder-shown) + span {
+      color: transparent;
+      transform: translate3d(0, -6p, 0) scale(0.75);
+    }
+
+    input:focus {
+      border: 1px solid #fe0302;
+    }
+
+    input:focus + span {
+      top: -15px;
+      left: 12px;
+      font-size: 10px;
+      background: linear-gradient(to right, #000, #fe0302);
+      border-radius: 4px;
+      padding: 1px 5px;
+      color: #fff;
+    }
+  }
+}
+
+@include for-phone {
+  .input {
+    label {
+      input {
+        width: 250px;
+      }
+    }
+  }
+}

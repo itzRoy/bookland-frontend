@@ -1,0 +1,49 @@
+.gridContainer {
+  height: 100vh;
+}
+
+.createContainer {
+  padding: 20px;
+  text-align: right;
+}
+
+.createButton {
+  background-color: #117e49;
+  padding: 6px 12px;
+  margin-right: 50px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    transition: all 0.3s ease-in-out;
+    background: #13a05c;
+  }
+}
+.productListItem {
+  display: flex;
+  align-items: center;
+}
+
+.productListImg {
+  width: 50px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.productListEdit {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: #117e49;
+  color: white;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.productListDelete {
+  color: red;
+  cursor: pointer;
+}

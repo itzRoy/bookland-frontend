@@ -1,0 +1,19 @@
+.Admin-btn {
+  background-color: black;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.549);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: right;
+  cursor: pointer;
+  margin: 15px 20px;
+  svg {
+    margin-left: 4px;
+    path {
+      stroke: #fe0302;
+    }
+  }
+}
